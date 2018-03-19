@@ -1,3 +1,21 @@
+<?php
+    if (isset($_POST['submit']))
+    {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $msg = $_POST['message'];
+
+        $to = 'lhc.zero@gmail.com';
+        $subject = "New Contact";
+        $header = 'From: Zero\'s Site <newContact@hanchen.greenriverdev.com>';
+        $message = "Contact Name: " . $name
+            . "Contact Email: " . $email
+            . "Message: " . $msg;
+
+        mail($to, $subject, $message, $header);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -331,14 +349,14 @@
             <div class="col-md-6 col-md-offset-3">
                 <form id="contact" action="" onsubmit="return validateForm()" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
                     </div>
                     <div class="form-group">
 								<textarea class="form-control" id="message" rows="4"
-                                          placeholder="Message"></textarea>
+                                          placeholder="Message" required></textarea>
                     </div>
                     <button type="submit"
                             class="btn btn-primary my-btn dark">Submit
@@ -410,39 +428,9 @@
         var email = document.forms["contact"]["email"].value;
         var message = document.forms["contact"]["message"].value;
 
-        if (name === "") {
-            alert("Please provide your name!");
-            return false;
-        }
-
-        if (email === "") {
-            alert("Please provide your Email!");
-            return false;
-        }
-
-        if (message === "") {
-            alert("Please provide your message!");
-            return false;
-        }
-
-        if (name !== "" && email !== "" && message !== "") {
-            <?php
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $msg = $_POST['message'];
-
-            $to = 'lhc.zero@gmail.com';
-            $subject = "New Contact";
-            $header = 'From: Zero\'s Site <newContact@hanchen.greenriverdev.com>';
-            $message = "Contact Name: " . $name
-                . "Contact Email: " . $email
-                . "Message: " . $msg;
-
-            mail($to, $subject, $message, $header);
-            ?>
-
+        if (name !== "" && email !== "" && message !== "")
+        {
             alert("Thank You! Your email has been sent! I'll reply to you as soon as possible!");
-            return true;
         }
     }
 </script>
