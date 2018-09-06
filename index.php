@@ -89,7 +89,7 @@
         <div class="container">
             <div class="content">
                 <h1>Hello There</h1><br>
-                <h2>My name is Hanchen Liu, but you can call me Zero. I'm a senior student at Green River College. As a
+                <h2>My name is Hanchen Liu, but you can call me Zero. I'm a recent graduate from Green River College. As a
                     software development major, I'm always wanting to know how apps and web pages are
                     built. And the software development program at Green River College really helped me to reach my
                     goal. I've learned Java, HTML, CSS, PHP, MySql and so much more through the program. And I can't
